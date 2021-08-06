@@ -1,0 +1,36 @@
+What is Angular?
+Angular is a JavaScript framework which allows us to create reactive single page applications (SPA's).
+
+Whats it with different versions of Angular?
+Angular 1 -> AngularJS
+There was a complete rewrite of the framework from Angular 1 to 2.
+Angular 2 (2016)
+Angular 4
+.   (There is a new version every 6 months)
+.   (They had small incremental changes)
+.   (They are mostly backwards compatible)
+Angular 12
+Note the remaining versions are the updations of Angular 2.
+
+Whats Angular CLI?
+Angular CLI makes it wasy to create applications out of the box that follows industry standards and the best practises.
+
+npm install -g @angular/CLI
+ng new my-dream-applications
+cd my-dream-app
+ng serve
+
+Whats TypeScript?
+TS is a super set of JS, Angular uses TS. It's a strongly typed language.
+TS is compiled to JS, thus JS is run the browser. Angular works like a bridge between TS and the browser.
+
+How does an Angular project boot up?
+First the src/main.ts file is accessed from the project folder, here the AppModule is passed as an argument to
+the bootstrapModule, further in app.module.ts we give AppComponent as a value to the bootstrap property in the NgModule,
+then angular analyzes the app components and knows the selector i.e. app-root, thats how angular is able to handle app root in index.html.
+
+Note: Angula is a JS framework which changes the DOM i.e. HTML at runtime.
+
+How to create components via CLI?
+ng generate component component-name or ng g c component-name
+it creates boiler code for components, i.e. initializes a component folder with files.
