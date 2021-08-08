@@ -34,3 +34,17 @@ Note: Angula is a JS framework which changes the DOM i.e. HTML at runtime.
 How to create components via CLI?
 ng generate component component-name or ng g c component-name
 it creates boiler code for components, i.e. initializes a component folder with files.
+
+
+What is the template and styles property/string in the component.ts file?
+the template property specifies the HTML code, we can either specify the raw html code or the template url by
+specifying the path of the component.html file. Specifying the html template in the coomponent.ts file is aka inline.
+similarly, we have the styles and styleURLs for the CSS properties that allow us to style and design our html code.
+
+What are selectors?
+A selector is used to identify each component uniquely into the component tree, 
+and it also defines how the current component is represented in the HTML DOM.
+we can specify the selector as an attribute by specifying in the brackets eg. [app-server]
+else we can also specify the selector as a class that we can use in different html elements .app-server
+
+
