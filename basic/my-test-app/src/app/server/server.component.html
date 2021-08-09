@@ -1,3 +1,4 @@
-<h1>Welcome to the Server Component</h1>
-<h2>ServerID: {{ serverId }}</h2>
-<h3>Status: {{ getServerStatus() }}</h3>
+<h1>Server Component</h1>
+<h2>ServerID: {{ serverId }} <span [ngClass]="{badge: serverStatus === 'Online'}">{{ runningStatus }}</span></h2>
+<h3 style="padding:10px; border:20px; border-radius:20px;" [ngStyle]="{backgroundColor: getColor()}">Status: {{ getServerStatus() }}</h3>
+<br>

@@ -1,6 +1,6 @@
 <p>Servers are initialized</p>
 <p>Add a Server?</p>
-<label for="serverName">Server Name</label>
+<label for="serverName">Server Name</label><br>
 <!-- Event binding -->
 <!-- <input 
     type="text" 
@@ -11,11 +11,15 @@
     type="text" 
     class="form-control" 
     [(ngModel)]="serverName">
-<p>{{ serverCreationStatus }}</p>
+<!-- <p>{{ serverCreationStatus }}</p> -->
+<br><p *ngIf="serverCreated; else noServer">{{ serverCreationStatus }}</p>
+<ng-template #noServer>
+    <p>No Server was created</p>
+</ng-template>
 <button 
     class="btn btn-primary" 
     [disabled]="!allowNewServer" 
-    (click)="onCreateServer()"
-    >Server+
+    (click)="onCreateServer()">
+    Server+
 </button>
-<app-server></app-server>
+<app-server *ngFor="let server of serverList"></app-server>

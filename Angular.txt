@@ -1,6 +1,7 @@
 What is Angular?
 Angular is a JavaScript framework which allows us to create reactive single page applications (SPA's).
 
+
 Whats it with different versions of Angular?
 Angular 1 -> AngularJS
 There was a complete rewrite of the framework from Angular 1 to 2.
@@ -11,6 +12,7 @@ Angular 4
 .   (They are mostly backwards compatible)
 Angular 12
 Note the remaining versions are the updations of Angular 2.
+
 
 Whats Angular CLI?
 Angular CLI makes it wasy to create applications out of the box that follows industry standards and the best practises.
@@ -23,6 +25,7 @@ ng serve
 Whats TypeScript?
 TS is a super set of JS, Angular uses TS. It's a strongly typed language.
 TS is compiled to JS, thus JS is run the browser. Angular works like a bridge between TS and the browser.
+
 
 How does an Angular project boot up?
 First the src/main.ts file is accessed from the project folder, here the AppModule is passed as an argument to
@@ -40,6 +43,7 @@ What is the template and styles property/string in the component.ts file?
 the template property specifies the HTML code, we can either specify the raw html code or the template url by
 specifying the path of the component.html file. Specifying the html template in the coomponent.ts file is aka inline.
 similarly, we have the styles and styleURLs for the CSS properties that allow us to style and design our html code.
+
 
 What are selectors?
 A selector is used to identify each component uniquely into the component tree, 
@@ -63,3 +67,17 @@ How to install bootstrap into you Angular project?
 This will add bootstrap 4 to your project. -> npm i bootstrap@next --save
 Next go to your src/style.css file and import bootstrap there -> @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 Finally in angular.json file add path in styles -> node_modules/bootstrap/dist/css/bootstrap.min.css"
+
+
+What are directives in Angular?
+Directives are classes that add additional behavior to elements in your Angular applications. 
+E.g. Attribute directives—directives that change the appearance or behavior of an element, component, or another directive.
+
+Note:The prefix ng stands for "Angular;" all of the built-in directives that ship with Angular use that prefix.
+Similarly, it is recommended that you do not use the ng prefix on your own directives in order to avoid possible name collisions in future versions of Angular.
+
+
+Whats ngIf?
+The ngIf directive removes or recreates a portion of the DOM tree based on an {expression}.
+If the expression assigned to ngIf evaluates to a false value then the element is removed from the DOM, otherwise a clone of the element is reinserted into the DOM.
+
