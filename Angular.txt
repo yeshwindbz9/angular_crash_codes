@@ -57,3 +57,9 @@ Two Way Binding([(ngModel)]="data") -> combination of both, ip/op.
 Note: databinding, especially property and event binding requires us to know the properties or events of the html elements
 you can simply google Element_name properties or Element_name events to know more about the events or properties.
 
+Note: npm install bootstrap@next --save is used to install bootstrap 4 in a project.
+
+How to install bootstrap into you Angular project?
+This will add bootstrap 4 to your project. -> npm i bootstrap@next --save
+Next go to your src/style.css file and import bootstrap there -> @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+Finally in angular.json file add path in styles -> node_modules/bootstrap/dist/css/bootstrap.min.css"

@@ -1,0 +1,23 @@
+<div class="input-group mb-3">
+    <input 
+        type="text" 
+        class="form-control" 
+        [(ngModel)]="userName" 
+        placeholder="Enter Name Here"
+    >
+
+    <div class="input-group-append">
+      <button 
+        class="btn btn-outline-secondary" 
+        type="button" 
+        [disabled]="!userName" 
+        (click)="onReset()"
+    >
+        Reset
+    </button>
+    </div>
+</div>
+
+<div class="input-group-append">
+    <p>Hey {{ userName }}.<br>Click Reset to clear your name.</p>
+</div>
