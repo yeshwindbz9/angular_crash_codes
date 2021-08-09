@@ -48,3 +48,12 @@ we can specify the selector as an attribute by specifying in the brackets eg. [a
 else we can also specify the selector as a class that we can use in different html elements .app-server
 
 
+What is databinding?
+It can be defined as the communication binding between the TS code i.e. business logic and the HTML template.
+String interpolation({ data }), Property binding([property]="data") -> outputs data i.e. TS Code to HTML Tempalte.
+Event binding((event)="expression") -> inputs data or react to users events i.e. HTML Template to TS Code.
+Two Way Binding([(ngModel)]="data") -> combination of both, ip/op.
+
+Note: databinding, especially property and event binding requires us to know the properties or events of the html elements
+you can simply google Element_name properties or Element_name events to know more about the events or properties.
+
