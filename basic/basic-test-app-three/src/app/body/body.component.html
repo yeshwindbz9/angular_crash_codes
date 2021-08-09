@@ -1,0 +1,38 @@
+<div class="card">
+    <button 
+    class="btn btn-outline-secondary" 
+    type="button"  
+    (click)="onClick()"
+    >
+    Display Details
+    </button>
+</div>
+
+
+<br><br>
+
+<div class="card" style="border: 0cm;">
+    <p *ngIf="buttonClick">
+        Code is like humor. <br>
+        When you have to explain it, it’s bad.” <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        – Cory House
+    </p>
+</div>
+
+<div class="card">
+    <ul class="list-group list-group-flush">
+        <li 
+            class="list-group-item" 
+            *ngFor="let click of clickArray; let i = index" 
+            [ngStyle]="{backgroundColor: click>=5? 'DodgerBlue': 'White'}" 
+            [ngClass]="{'white-text': i+1>=5}"
+        >
+            <span>No of times button clicked: {{click}}</span>
+        </li>
+    </ul>
+</div>
+
+
+

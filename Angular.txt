@@ -66,7 +66,7 @@ Note: npm install bootstrap@next --save is used to install bootstrap 4 in a proj
 How to install bootstrap into you Angular project?
 This will add bootstrap 4 to your project. -> npm i bootstrap@next --save
 Next go to your src/style.css file and import bootstrap there -> @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-Finally in angular.json file add path in styles -> node_modules/bootstrap/dist/css/bootstrap.min.css"
+Finally in angular.json file add path in styles -> "node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 
 What are directives in Angular?
