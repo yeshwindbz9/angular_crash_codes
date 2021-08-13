@@ -17,6 +17,7 @@ Note the remaining versions are the updations of Angular 2.
 Whats Angular CLI?
 Angular CLI makes it wasy to create applications out of the box that follows industry standards and the best practises.
 
+What are the common angular commands?
 npm install -g @angular/CLI
 ng new my-dream-applications
 cd my-dream-app
@@ -54,12 +55,13 @@ else we can also specify the selector as a class that we can use in different ht
 
 What is databinding?
 It can be defined as the communication binding between the TS code i.e. business logic and the HTML template.
-String interpolation({ data }), Property binding([property]="data") -> outputs data i.e. TS Code to HTML Tempalte.
-Event binding((event)="expression") -> inputs data or react to users events i.e. HTML Template to TS Code.
-Two Way Binding([(ngModel)]="data") -> combination of both, ip/op.
+    String interpolation({ data }), Property binding([property]="data") -> outputs data i.e. TS Code to HTML Tempalte.
+    Event binding((event)="expression") -> inputs data or react to users events i.e. HTML Template to TS Code.
+    Two Way Binding([(ngModel)]="data") -> combination of both, ip/op.
 
 Note: databinding, especially property and event binding requires us to know the properties or events of the html elements
 you can simply google Element_name properties or Element_name events to know more about the events or properties.
+Property & Event Binding not only works with HTML elements but it also works for Directives and Components with Native and Custom elements.
 
 Note: npm install bootstrap@next --save is used to install bootstrap 4 in a project.
 
@@ -85,10 +87,100 @@ If the expression assigned to ngIf evaluates to a false value then the element i
 How to spot errors in Anular?
 Debugging in angular has improved over the years, angular error messages now have standardized error codes, additional details and formatting.
 Angular errors are in the following format: NGWXYS: {Error Message}.<link>
-NG WXYZ: NG stands for angular
-NG-W XYZ: W can be 0 or 1-9, where 0 represents Runtime error and codes 1-9 are compiler errors
-NGW-X YZ: X stands for various runtime categories errors from 0-7 as specified below,
-0-Internal, 1-Change Dectection, 2-Dependancy Injection, 3-Template, 4-Styling, 5-Declarations, 6-i18n, 7-Compilation
-NGWX-YZ: YZ stands for indexed code.
-{Error Messages}: gives a brief description of the error
-<link>: gives a link to angular.io/errors which will give guides and tips to debug the error
+    NG WXYZ: NG stands for angular
+    NG-W XYZ: W can be 0 or 1-9, where 0 represents Runtime error and codes 1-9 are compiler errors
+    NGW-X YZ: X stands for various runtime categories errors from 0-7 as specified below,
+    0-Internal, 1-Change Dectection, 2-Dependancy Injection, 3-Template, 4-Styling, 5-Declarations, 6-i18n, 7-Compilation
+    NGWX-YZ: YZ stands for indexed code.
+    {Error Messages}: gives a brief description of the error
+    <link>: gives a link to angular.io/errors which will give guides and tips to debug the error
+
+
+How to make bindable elements from parent to child?
+How to use the data from parent component as an Input to the child component?
+How to share data between Components?
+Firstly, create a variable to hold the input data in the child component ts file
+    @Input('ipElement') element: {ipData: string};
+Further, use databinding to send the data from the parent html object,
+    [ipElement]="ipElement"
+Provided you have the ipElement as an object as an object in parent html object/ ts file.
+
+
+What is EventEmitter in angular?
+Data flows into your component via property bindings and flows out of your component through event bindings. 
+If you want your component to notify his parent about something you can use the Output decorator with EventEmitter to create a custom event.
+
+
+How to create a custom event?
+Firstly, import { EventEmitter } from '@angular/core';
+Second, create a variable to handle the event by using the Output Directive so that you can pass it to the parent component,
+    @Output('eventCreated') anEvent = new EventEmitter<{eventData: string}>();
+Then emit the event by a fuction like a click of a button, 
+    this.anEvent.emit({eventData: string});
+
+Note: eventCreated is a custom event alias here.
+
+How to listen to a custom event?
+Inside the parent html use databinding to listen to the event,
+    (eventCreated)="eventCaptured($event)"
+Provided you have the evenCaptured function initialized in the parent ts file.
+
+
+Whats a ViewEncapsulation?
+In Angular, component CSS styles are encapsulated into the component's view and don't affect the rest of the application.
+Emulated view encapsulation (the default) emulates the behavior of shadow DOM by preprocessing (and renaming) 
+the CSS code to effectively scope the CSS to the component's view.
+Emulated view encapsulation (the default) emulates the behavior of shadow DOM by preprocessing (and renaming) the 
+CSS code to effectively scope the CSS to the component's view.
+
+
+What are local refrences in templates?
+A template reference variable is often a reference to a DOM element within a template. 
+It can also refer to a directive (which contains a component), an element, TemplateRef, or a web component. 
+Use the hash symbol (#) to declare a reference variable.
+The refrence variable can only beused in the template and not in the TS file, to use it there pass it in an event or a function.
+The refrence variable then can be used as an HTMLElement in the TS file.
+
+
+What is @ViewChild?
+A ViewChild is a component, directive, or element as a part of a template. 
+If we want to access a child component, directive, DOM element inside the parent component, we use the decorator @ViewChild() in Angular. 
+Since the child component can be located inside the parent component, it can accessed as @ViewChild.
+
+Note: ViewChild and ContentChild are two very important features of Angular. 
+It is used to access Child Component in the Parent Component. 
+Any directive, component, and element which is part of component template is accessed as ViewChild.
+
+What is @ContentChild?
+Use to get the first element or the directive matching the selector from the content DOM. 
+If the content DOM changes, and a new child matches the selector, the property will be updated.
+
+
+What is the difference between ViewChild () and ContentChild ()?
+ViewChild is used to select an element from component's template while ContentChild is used to select projected content.
+
+
+How is <ng-content> used?
+The ng-content tag is used for content projection. 
+It is basically a placeholder to hold the dynamic content until it is parsed. Once the template is parsed, 
+Angular replaces the tag with content.
+We can use content projection to create a reusable component. 
+The components that have similar logic & layout and can be used in many places in the application. 
+Take an example of a card component.
+
+
+What are the LifeCycles of a Component?
+A component instance has a lifecycle that starts when Angular instantiates the component class and 
+renders the component view along with its child views.
+Different lifecycles of a Component include:-
+    ngOnChanges - called after a bound input property changes.
+    ngOnInit - called once the component is initialized.
+    ngDoCheck - called during every change detection run.
+    ngAfterContentInit - called after ng-content has been projected into the view.
+    ngAfterContentChecked - called every time the projected content has been checked.
+    ngAfterViewInit - called after teh components view and child views has been initialized.
+    ngAfterViewChecked - called after teh components view and child views has been checked.
+    ngOnDestroy - called once the component is about to be destroyed.
+
+
+.
