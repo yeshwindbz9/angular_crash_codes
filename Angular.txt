@@ -17,11 +17,13 @@ Note the remaining versions are the updations of Angular 2.
 Whats Angular CLI?
 Angular CLI makes it wasy to create applications out of the box that follows industry standards and the best practises.
 
+
 What are the common angular commands?
 npm install -g @angular/CLI
 ng new my-dream-applications
 cd my-dream-app
 ng serve
+
 
 Whats TypeScript?
 TS is a super set of JS, Angular uses TS. It's a strongly typed language.
@@ -82,6 +84,21 @@ Similarly, it is recommended that you do not use the ng prefix on your own direc
 Whats ngIf?
 The ngIf directive removes or recreates a portion of the DOM tree based on an {expression}.
 If the expression assigned to ngIf evaluates to a false value then the element is removed from the DOM, otherwise a clone of the element is reinserted into the DOM.
+
+
+Whats ngFor?
+ngFor is a predefined directive in Angular. It accepts an array to iterate data over atemplate to replicate the template with different data. 
+It's the same as the forEach() method in JavaScript, which also iterates over an array.
+
+
+Whats ngClass?
+The ngClass directive allows you to dynamically set CSS classes on an HTML element by databinding 
+an expression that represents all classes to be added.
+
+
+Whats ngStyle?
+An attribute directive that updates styles for the containing HTML element. Sets one or more style properties, 
+specified as colon-separated key-value pairs. The key is a style name, with an optional .
 
 
 How to spot errors in Anular?
@@ -183,4 +200,36 @@ Different lifecycles of a Component include:-
     ngOnDestroy - called once the component is about to be destroyed.
 
 
-.
+Whats the difference between attribute and structural directives?
+Structural directives are used for shaping or reshaping HTML DOM by adding, removing elements. 
+They affect the whole area in the DOM i.e. elements get added or removed.
+They look like any normal html attribute and have a leading * in front of them.
+
+Attribute directives are used to change the appearance or behavior of DOM element.
+they only affect the element by changing it, they too look like an html attribute,
+possibily with databinding or event binding.
+
+
+How to create a custom directive in angular?
+We can use the command ng generate directive folder-name/directive-name 
+or ng g d directive-name to create a directive, remember to add it into the list of declarations in app module.
+
+We can create custom directives that uses the element reference to change its style or state, but
+it is better to use Renderer as it will help us achieve the goal without actually changing the DOM element.
+
+
+Whats Renderer?
+The Renderer2 class is an abstraction provided by Angular in the form of a service that allows to manipulate elements 
+of your app without having to touch the DOM directly. By default, Angular renders a template into DOM. You can use custom rendering to intercept 
+rendering calls, or to render to something other than DOM.
+
+
+What is HostListner?
+In Angular, the @HostListener() function decorator allows you to handle events of the host element in the directive class.
+To do this, you need to handle events raised on the host element in the directive class. 
+In Angular, you do this using @HostListener()
+
+
+What is HostBinding?
+It is a decorator that marks a DOM property as a host-binding property and supplies configuration metadata. 
+Angular automatically checks host property bindings during change detection, and if a binding changes it updates the host element of the directive.
