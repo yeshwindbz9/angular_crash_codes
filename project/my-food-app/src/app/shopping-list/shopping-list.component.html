@@ -6,10 +6,10 @@
     <ul class="list-group">
       <a
         class="list-group-item"
-        style="cursor: pointer"
+        style="cursor: pointer;border-radius: 20px;margin-bottom: 5px;"
         *ngFor="let ingredient of ingredients"
       >
-        {{ ingredient.name }} ({{ ingredient.amount }})
+        {{ ingredient.name }} <span class="badge badge-secondary">{{ ingredient.amount }}</span>
       </a>
     </ul>
   </div>
