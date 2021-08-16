@@ -233,3 +233,37 @@ In Angular, you do this using @HostListener()
 What is HostBinding?
 It is a decorator that marks a DOM property as a host-binding property and supplies configuration metadata. 
 Angular automatically checks host property bindings during change detection, and if a binding changes it updates the host element of the directive.
+
+
+What are services in angular?
+Angular services are singleton objects that get instantiated only once during the lifetime of an application. 
+They contain methods that maintain data throughout the life of an application, 
+i.e. data does not get refreshed and is available all the time.
+
+
+How to create a service?
+create a new service-name.service.ts file, add this to the providers array in your component or the app module.
+if it is added to a custom component then the service has a particular instance for that component, else
+adding it to the app module's providers array will give rise to a system wide instance of that service.
+Further in the components where you wish to use the service, initialize the constructor with the service object.
+
+
+Whats is Dependency Injector in Angular?
+Dependency injection, or DI, is a design pattern in which a class requests dependencies from external 
+sources rather than creating them. Angular's DI framework provides dependencies to a class upon instantiation. 
+You can use Angular DI to increase flexibility and modularity in your applications.
+
+Note: We can create a custom service by just making a class and use dependency injection 
+by creating an object of this class as a private variable in the constructor of any component.
+
+
+What are the different Heirarchial injectors?
+A hierarchical dependency injection system allows us to define different boundaries or scopes for our 
+dependencies to run in and follows the component tree structure. By default, services registered to Angular are 
+application wide but we can also create services that are isolated to a subset of components.
+    AppModule: Same Instance of Service is avaliable Application-Wide.
+    AppComponent: Same instance of Service is avaliable for all components(but not for other services).
+    CustomComponent: Same instance is avaliable for the component and all its child components.
+
+
+Note: We can also inject a service into another service, but the service that takes the injection must have an injectable decorator.

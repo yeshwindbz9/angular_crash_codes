@@ -1,0 +1,13 @@
+<div class="row" style="border-radius: 90px; background-color: transparent; border-color: black; box-shadow: 50px;">
+  <div class="col-xs-12 col-md-8 col-md-offset-2">
+    <h5 style="text-align: center; color: darkslategray;">{{ account.name }}</h5>
+    <p style="text-align: center;"><span class="badge">{{ account.status }}</span></p>
+    <hr style="border-color: black;">
+    <div style="text-align: center;">
+      <button style="border-radius: 20px;margin: 5px;" class="btn btn-success" (click)="onSetTo('active')">Set to 'active'</button>
+      <button style="border-radius: 20px;margin: 5px;" class="btn btn-danger" (click)="onSetTo('inactive')">Set to 'inactive'</button>
+      <button style="border-radius: 20px;margin: 5px;" class="btn btn-warning" (click)="onSetTo('unknown')">Set to 'unknown'</button>
+    </div>
+    </div>
+</div>
+
