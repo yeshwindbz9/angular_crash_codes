@@ -195,8 +195,8 @@ Different lifecycles of a Component include:-
     ngDoCheck - called during every change detection run.
     ngAfterContentInit - called after ng-content has been projected into the view.
     ngAfterContentChecked - called every time the projected content has been checked.
-    ngAfterViewInit - called after teh components view and child views has been initialized.
-    ngAfterViewChecked - called after teh components view and child views has been checked.
+    ngAfterViewInit - called after the components view and child views has been initialized.
+    ngAfterViewChecked - called after the components view and child views has been checked.
     ngOnDestroy - called once the component is about to be destroyed.
 
 
@@ -246,6 +246,10 @@ create a new service-name.service.ts file, add this to the providers array in yo
 if it is added to a custom component then the service has a particular instance for that component, else
 adding it to the app module's providers array will give rise to a system wide instance of that service.
 Further in the components where you wish to use the service, initialize the constructor with the service object.
+
+
+How to inject a service?
+The process of adding a service object or reference in the constructor of a component is known as injecting a service.
 
 
 Whats is Dependency Injector in Angular?

@@ -1,25 +1,40 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, DoCheck, ElementRef, OnChanges, OnInit, ViewChild } from '@angular/core';
 
 import { Ingredient } from '../shared/ingredient.model';
+import { ShoppingListService } from './shopping-list.service';
 
 @Component({
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
-  styleUrls: ['./shopping-list.component.css']
+  styleUrls: ['./shopping-list.component.css'],
 })
-export class ShoppingListComponent implements OnInit {
-  ingredients: Ingredient[] = [
-    new Ingredient('Apples', 5),
-    new Ingredient('Tomatoes', 10),
-  ];
+export class ShoppingListComponent implements OnInit, AfterViewInit{
+  ingredients: Ingredient[];
+  @ViewChild('warningAlert') alert: ElementRef;
 
-  constructor() { }
+  constructor(private shoppingListService: ShoppingListService){ }
 
   ngOnInit() {
+    this.ingredients = this.shoppingListService.getIngredients();
+    this.shoppingListService.ingredientsChanged.subscribe((updatedIngredients: Ingredient[])=>{
+      this.ingredients = updatedIngredients;
+      for(let i=0; i<this.ingredients.length; i++){
+        for(let j=i+1; j<this.ingredients.length; j++){
+            if(this.ingredients[i] === this.ingredients[j]){
+                this.alert.nativeElement.style.display= "block";
+            }
+        }
+      }
+    });
   }
 
-  onIngredientAdded(ingredient: Ingredient){
-    this.ingredients.push(ingredient);
+  ngAfterViewInit(){
+    for(let i=0; i<this.ingredients.length; i++){
+      for(let j=i+1; j<this.ingredients.length; j++){
+          if(this.ingredients[i] === this.ingredients[j]){
+              this.alert.nativeElement.style.display= "block";
+          }
+      }
+    }
   }
-
 }
