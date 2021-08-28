@@ -271,3 +271,39 @@ application wide but we can also create services that are isolated to a subset o
 
 
 Note: We can also inject a service into another service, but the service that takes the injection must have an injectable decorator.
+
+
+How to add Routes in an angular app?
+Firstly, create a constant array appRoutes of type Routes in your app module, 
+each element in this array is a javaScript Object containing properties of path and component, 
+e.g. {path: 'home', component: HomeComponent }.
+Further add RouterModule in the imports section and call a method .forRoot(appRoutes) on it.
+remember the parameter appRoutes is the constant array of Routes that we created earlier.
+Later we can render the components based on their path by including <router-outlet> tag in our templates.
+Also, use the angular attribute routerLink on anchor tags to naviigate without reloads.
+When creating a new project the angular routing should be enabled.
+
+
+How to Navigate inside our app?
+To navigate from an event like a button click, first add the router variable in your constructor.
+created a method that is executed on an event, call the navigate method on the router variable and pass the path.
+e.g. this.router.navigate(['myPath']);
+we can also add another argument i.e. relative to, to navigate teh page relative to a path.
+e.g. this.router.navigate(['myPath'], relativeTo: this.route);
+To get the current activate route, we can use the ActivatedRoute in your constructor.
+e.g. constructor(private route: ActivatedRoute){}
+
+
+How to redirect or handle page-not-found urls?
+To redirect a page or to handle bad urls and redirect them to a 404 error page use the following.
+First, create a page-not-found component and a route like so, {path: "not-found", component: PageNotFoundComponent },
+Then, use the wildcard ** and redirect to handle all other urls, {path: "**", redirectTo: '/not-found' },
+
+Note: Include the wildcards at the end of your routes array else they will be parsed first and give rise to some spooky behaviour.
+
+
+What is the app-routing.module?
+To keep the routes organized and efficient we store the user defined routes in a seperate file called the 
+app-routing.module.ts.
+In this file inside the NgModule decorator we add imports: [RouterModule.forRoot(appRoutes)], and exports: [RouterModule].
+Finally, in the app.module.ts we add the AppRoutingModule by declaring it in the imports array of NgModule.

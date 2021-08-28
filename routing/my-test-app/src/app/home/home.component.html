@@ -1,0 +1,18 @@
+<h4>Welcome to Server Manager 9.1</h4>
+<p>Manage your Servers and Users.</p>
+
+<div class="alert alert-success" *ngIf="authFlag">
+    <strong>🪐 User is LoggedIn! 👍</strong>
+</div>
+
+<div class="alert alert-danger" *ngIf="!authFlag">
+    <strong>💫 User is LoggedOut! 👎   </strong>
+</div>
+
+<button class="btn btn-default" style="margin-right: 5px;" (click)="onLogin()">Login</button>
+<button class="btn btn-default" style="margin-left: 5px;" (click)="onLogout()">LogOut</button>
+<br><br>
+<button class="btn btn-default" style="margin-right: 5px;" (click)="onLoadServers()">LoadServers</button>
+<button class="btn btn-default" style="margin-left: 5px;" (click)="onLoadUsers()">LoadUsers</button>
+<br><br>
+<button class="btn btn-default" (click)="onLoad404()">404_Page</button>
